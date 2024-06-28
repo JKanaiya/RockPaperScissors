@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+body {
+  background-color: #32333b;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+h2 {
+  color: azure;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+  top: 2%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+#gameArena {
+  height: 80dvh;
+  margin-top: 10%;
+  width: 40vw;
+  display: flex;
+  padding: 3%;
+  padding-left: 4.5%;
+  gap: 5%;
+  color: aliceblue;
+  font-weight: 550;
+  flex-direction: column;
+  position: relative;
+  background-color: gray;
+  box-shadow: rgba(29, 29, 29, 0.397) 10px 10px 10px;
+}
+#gameArena h2 {
+  width: fit-content;
+}
+#Buttons {
+  background-color: #ffff;
+  height: 25%;
+  font-size: 40px;
+  padding: 2%;
+  margin-top: 12%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#Rock,
+#Paper,
+#Scissors {
+  height: 100%;
+  width: 32%;
+  display: grid;
+  place-content: center;
+}
+#Rock {
+  background-color: blue;
+}
+#Paper {
+  background-color: red;
+}
+#Scissors {
+  background-color: green;
+}
+
+.selections {
+  height: 25%;
+  width: 98%;
+  display: flex;
+  font-size: 40px;
+  padding: 2%;
+  gap: 2%;
+  justify-content: space-between;
+  background-color: #ffff;
+}
+#playerSelection,
+#aiSelection {
+  height: 90%;
+  width: 50%;
+  display: grid;
+  font-size: 35px;
+  margin-top: 1%;
+  place-content: center;
+}
+#playerSelection {
+  background-color: blue;
+}
+#aiSelection {
+  background-color: red;
+}
+#results {
+  height: 25%;
+  width: 98%;
+  display: flex;
+  padding: 2%;
+  gap: 2%;
+  justify-content: space-between;
+  background-color: #ffff;
+}
+h3 {
+  font-size: 25px;
+}
+.scoresDisplay {
+  display: flex;
+}
+.scores,
+.finalResult {
+  height: 90%;
+  font-size: 40px;
+  background-color: turquoise;
+  width: 50%;
+  display: grid;
+  place-content: center;
+}

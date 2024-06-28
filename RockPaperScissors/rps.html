@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="/RockPaperScissors/rps.js"></script>
+    <link rel="stylesheet" href="/rps.css" />
+    <script defer src="/RockPaperScissors/rps.js"></script>
   </head>
   <body>
     <h2>Let's play rock paper scissors!</h2>
-    <button onclick="playGame()">Play!</button>
+    <div id="gameArena">
+      <h2>Choose from the options below</h2>
+      <div id="Buttons">
+        <div id="Rock">Rock</div>
+        <div id="Paper">Paper</div>
+        <div id="Scissors">Scissors</div>
+      </div>
+      <div class="selections">
+        <div id="playerSelection"></div>
+        <div id="aiSelection"></div>
+      </div>
+      <div id="results">
+        <div class="scores">
+          <h3>Scores</h3>
+          <div class="scoresDisplay">
+            <p id="playerScore"></p>
+            :
+            <p id="aiScore"></p>
+          </div>
+        </div>
+        <div class="finalResult">
+          <h3>Final Result</h3>
+          <div id="resultDisplay"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

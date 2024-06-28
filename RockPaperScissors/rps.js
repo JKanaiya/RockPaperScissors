@@ -1,73 +1,68 @@
-let userSelection, b, computerSelection;
-let selections = ["ROCK", "PAPER", "SCISSORS"];
+let b, computerSelection;
+const selections = ["ROCK", "PAPER", "SCISSORS"];
 let userWins = 0; // Track user wins
-
+let aiWins = 0; // Track AI wins
+// case: all ties, limit game amount to 5 and output 'tied'
 function getSelections() {
-  userSelection = prompt("Lets Battle!").toUpperCase();
-  // Validate user input
   computerSelection = selections[Math.floor(Math.random() * 3)];
-  while (!selections.includes(userSelection)) {
-    userSelection = prompt(
-      "Invalid input. Please enter ROCK, PAPER, or SCISSORS:"
-    ).toUpperCase();
-  }
 }
+function updateScore() {
+  document.getElementById("playerScore").textContent = userWins;
+  document.getElementById("aiScore").textContent = aiWins;
 
-function playRound() {
-  let result;
-  if (userSelection === "ROCK") {
-    switch (computerSelection) {
-      case "ROCK":
-        result = "The Output is a Tie";
-        break;
-      case "PAPER":
-        result = "I Win!, Paper beats Rock";
-        break;
-      case "SCISSORS":
-        result = "You Win!, Rock beats Scissors";
-        userWins++;
-        break;
-    }
-  } else if (userSelection === "PAPER") {
-    // Similar logic for PAPER and SCISSORS cases
-    switch (computerSelection) {
-      case "PAPER":
-        result = "The Output is a Tie";
-        break;
-      case "SCISSORS":
-        result = "I Win!, Scissors beats Paper";
-        break;
-      case "ROCK":
-        result = "You Win!, Paper beats Rock";
-        userWins++;
-        break;
-    }
-  } else if (userSelection === "SCISSORS") {
-    // Similar logic for PAPER and SCISSORS cases
-    switch (computerSelection) {
-      case "SCISSORS":
-        result = "The Output is a Tie";
-        break;
-      case "ROCK":
-        result = "I Win!, Rock beats Scissors";
-        break;
-      case "PAPER":
-        result = "You Win!, Scissors beats Paper";
-        userWins++;
-        break;
+  if (aiWins == 5 || userWins == 5) {
+    if (aiWins > userWins) {
+      document.getElementById("resultDisplay").textContent = "AI WINS";
+    } else {
+      document.getElementById("resultDisplay").textContent = "YOU WIN";
     }
   }
-  alert(result);
 }
+playerSelection = document.getElementById("playerSelection");
+let rock = document.getElementById("Rock");
+rock.addEventListener("click", () => {
+  getSelections();
+  switch (computerSelection) {
+    case "PAPER":
+      aiWins++;
+      break;
+    case "SCISSORS":
+      userWins++;
+      break;
+  }
+  updateScore();
 
-function playGame() {
-  for (b = 0; b < 5; b++) {
-    getSelections();
-    playRound();
+  document.getElementById("playerSelection").textContent = "ROCK";
+  document.getElementById("aiSelection").textContent = computerSelection;
+  // playerSelection.textContext = "ROCK";
+});
+let paper = document.getElementById("Paper");
+paper.addEventListener("click", () => {
+  getSelections();
+  switch (computerSelection) {
+    case "SCISSORS":
+      aiWins++;
+      break;
+    case "ROCK":
+      userWins++;
+      break;
   }
-  if (userWins >= 3) {
-    alert("You Win! I give up, Good Game");
-  } else {
-    alert("I Win! Good Game");
+  document.getElementById("playerSelection").textContent = "PAPER";
+  document.getElementById("aiSelection").textContent = computerSelection;
+  updateScore();
+});
+let scissors = document.getElementById("Scissors");
+scissors.addEventListener("click", () => {
+  getSelections();
+  switch (computerSelection) {
+    case "ROCK":
+      aiWins++;
+      break;
+    case "PAPER":
+      userWins++;
+      break;
   }
-}
+  document.getElementById("playerSelection").textContent = "SCISSORS";
+  document.getElementById("aiSelection").textContent = computerSelection;
+  updateScore();
+});
