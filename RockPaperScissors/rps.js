@@ -2,7 +2,6 @@ let b, computerSelection;
 const selections = ["ROCK", "PAPER", "SCISSORS"];
 let userWins = 0; // Track user wins
 let aiWins = 0; // Track AI wins
-// case: all ties, limit game amount to 5 and output 'tied'
 function getSelections() {
   computerSelection = selections[Math.floor(Math.random() * 3)];
 }
